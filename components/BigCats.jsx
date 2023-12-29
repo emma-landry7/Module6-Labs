@@ -54,8 +54,16 @@ function BigCats() {
     }
 
     const handleAddCat = (newCat) => {
-        newCat.id = currentCats.length +1
+        newCat.id = currentCats.length + 1
         let newCats = [...currentCats, newCat]
+        setCurrentCats(newCats)
+    }
+
+    const handleDeleteCat = (id) => {
+        for (cat in currentCats) {
+            
+        }
+        let newCats = currentCats.filter(cat => cat.id != id)
         setCurrentCats(newCats)
     }
     
