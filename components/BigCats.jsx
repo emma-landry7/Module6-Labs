@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SingleCat from "./SingleCat";
+import AddCatForm from "./AddCatForm";
 
 function BigCats() {
     const cats = [
@@ -51,6 +52,12 @@ function BigCats() {
 
         setCurrentCats(newCats)
     }
+
+    const handleAddCat = (newCat) => {
+        newCat.id = currentCats.length +1
+        let newCats = [...currentCats, newCat]
+        setCurrentCats(newCats)
+    }
     
     return (
         <div>
@@ -60,6 +67,7 @@ function BigCats() {
             <button onClick={handleReverseCats}>Reverse</button>
             <button onClick={handleFilterCats}>Filter Panthera family</button>
             <button onClick={handleResetCats}>Reset</button>
+            <AddCatForm onAddCat={handleAddCat} />
         </div>
     )
 }
