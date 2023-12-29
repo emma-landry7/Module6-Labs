@@ -34,8 +34,8 @@ function App() {
       <Greeting name="John">
         <div>This is a child component</div>
       </Greeting>
-      {/* <BigCats /> */}
-      <Emoji />
+      <BigCats />
+      {/* <Emoji /> */}
     </>
   )
 }

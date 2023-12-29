@@ -1,7 +1,7 @@
 function SingleCat({image, name, latinName}) {
     return (
-        <li>
-            <img height="200px" src={image} alt={`image of ${name}`} />
+        <li style={{textAlign: "left"}}>
+            <img width="400px" style={{marginRight: 8}} src={image} alt={`image of ${name}`} />
             <span><strong>{name}:</strong> {latinName}</span>
         </li>
     )
