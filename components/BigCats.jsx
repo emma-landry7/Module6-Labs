@@ -15,12 +15,18 @@ function BigCats() {
 
     const [currentCats, setCurrentCats] = useState(cats)
 
+    const handleDeleteCat = (name) => {
+            let newCats = currentCats.filter(cat => cat.name != name)
+            setCurrentCats(newCats)
+        }
+
     const catsList = currentCats.map(cat => (
         <SingleCat 
             key={cat.id}
             name={cat.name}
             latinName={cat.latinName}
-            image={cat.image} />
+            image={cat.image}
+            onDeleteCat={handleDeleteCat} />
     ))
 
     const handleSortCats = () => {
@@ -57,15 +63,10 @@ function BigCats() {
         newCat.id = currentCats.length + 1
         let newCats = [...currentCats, newCat]
         setCurrentCats(newCats)
+        console.log(newCats)
     }
 
-    const handleDeleteCat = (id) => {
-        for (cat in currentCats) {
-            
-        }
-        let newCats = currentCats.filter(cat => cat.id != id)
-        setCurrentCats(newCats)
-    }
+    
     
     return (
         <div>
