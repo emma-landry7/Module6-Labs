@@ -31,9 +31,9 @@ function App() {
       {/* <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p> */}
-      <Greeting name="John">
+      {/* <Greeting name="John">
         <div>This is a child component</div>
-      </Greeting>
+      </Greeting> */}
       <BigCats />
       {/* <Emoji /> */}
     </>

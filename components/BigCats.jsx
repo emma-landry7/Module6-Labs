@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SingleCat from "./SingleCat";
+import AddCatForm from "./AddCatForm";
 
 function BigCats() {
     const cats = [
@@ -14,12 +15,18 @@ function BigCats() {
 
     const [currentCats, setCurrentCats] = useState(cats)
 
+    const handleDeleteCat = (name) => {
+            let newCats = currentCats.filter(cat => cat.name != name)
+            setCurrentCats(newCats)
+        }
+
     const catsList = currentCats.map(cat => (
         <SingleCat 
             key={cat.id}
             name={cat.name}
             latinName={cat.latinName}
-            image={cat.image} />
+            image={cat.image}
+            onDeleteCat={handleDeleteCat} />
     ))
 
     const handleSortCats = () => {
@@ -51,6 +58,15 @@ function BigCats() {
 
         setCurrentCats(newCats)
     }
+
+    const handleAddCat = (newCat) => {
+        newCat.id = currentCats.length + 1
+        let newCats = [...currentCats, newCat]
+        setCurrentCats(newCats)
+        console.log(newCats)
+    }
+
+    
     
     return (
         <div>
@@ -60,6 +76,7 @@ function BigCats() {
             <button onClick={handleReverseCats}>Reverse</button>
             <button onClick={handleFilterCats}>Filter Panthera family</button>
             <button onClick={handleResetCats}>Reset</button>
+            <AddCatForm onAddCat={handleAddCat} />
         </div>
     )
 }
